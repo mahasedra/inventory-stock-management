@@ -6,15 +6,15 @@
             <span aria-hidden="true">&times;</span>
         </a>
     </div>
-    <a class="btn btn-primary mx-3" href="/products">All products</a>
+    <a class="btn btn-primary mx-3" href="/products">Tous les produits</a>
     {{/if}}
 
     {{#if data}}
     <div class="d-flex justify-content-between mb-4">
-        <h1>Products</h1>
+        <h1>Produits</h1>
 
         <a href="/create_product" class="btn btn-primary">
-            Add product
+            Ajouter produit
         </a>
     </div>
 
@@ -28,8 +28,8 @@
                 <th>Fournisseur</th>
                 <th>Date</th>
                 <th>Heure</th>
-                <th>UPDATE</th>
-                <th>DELETE</th>
+                <th>Modifier</th>
+                <th>Supprimer</th>
             </tr>
         </thead>
 
@@ -46,13 +46,13 @@
                 <td>
                     <form class="form" method="post" action="/findId">
                         <input type="hidden" name="id" value="{{id}}"><button
-                            class="btn btn-sm d-block w-100 btn-secondary">edit</button>
+                            class="btn btn-sm d-block w-100 btn-secondary">Modifier</button>
                     </form>
                 </td>
                 <td>
                     <form class="form" method="post" action="/delete_product">
                         <input type="hidden" name="id" value="{{id}}"><button
-                            class="btn btn-sm d-block w-100 btn-danger">delete</button>
+                            class="btn btn-sm d-block w-100 btn-danger">Supprimer</button>
                     </form>
                 </td>
             </tr>

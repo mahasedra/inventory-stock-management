@@ -1,4 +1,5 @@
 const products = require("../models/products.model");
+const suppliers = require("../models/suppliers.model");
 
 //get all products from db
 exports.findAll = (req, res) => {
@@ -10,6 +11,20 @@ exports.findAll = (req, res) => {
         }
         res.render('products', {
             title: 'Mini Market',
+            data: results
+        });
+    });
+};
+
+exports.toCreateProduct = (req, res) => {
+    suppliers.findAll((err, results) => {
+        if (err) {
+            res.status(500).send({
+                message: err.message || "error occured while retrieving suppliers"
+            });
+        }
+        res.render('create_product', {
+            title: 'All Suppliers',
             data: results
         });
     });

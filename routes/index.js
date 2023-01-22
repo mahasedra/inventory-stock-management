@@ -47,12 +47,7 @@ router.get('/products', productsController.findAll);
 router.post('/create_product', productsController.create);
 
 // render create_product
-router.get('/create_product', function (req, res) {
-    res.render('create_product', {
-        data: true,
-        title: "Create New Product"
-    });
-});
+router.get('/create_product', productsController.toCreateProduct);
 
 // Retrieve a single product with id
 router.post('/findId', productsController.findById);
@@ -71,12 +66,7 @@ router.post('/delete_product', productsController.delete);
 
 router.get('/orders', ordersController.findAll);
 
-router.get('/create_order', function (req, res) {
-    res.render('create_order', {
-        data: true,
-        title: "Create New Order"
-    });
-});
+router.get('/create_order', ordersController.toCreateOrder);
 // Create a new order
 router.post('/create_order', ordersController.create);
 // Retrieve a single order with id

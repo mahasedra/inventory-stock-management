@@ -1,4 +1,5 @@
 const orders = require("../models/orders.model");
+const products = require("../models/products.model");
 
 //get all orders from db
 exports.findAll = (req, res) => {
@@ -8,8 +9,23 @@ exports.findAll = (req, res) => {
                 message: err.message || "error occured while retrieving orders"
             });
         }
-        res.render('orders', {
-            title: 'All Orders',
+        res.render('create_product', {
+            data: results,
+            title: "Create New Product"
+        });
+    });
+};
+
+exports.toCreateOrder = (req, res) => {
+    products.findAll((err, results) => {
+        if (err) {
+            res.status(500).send({
+                message: err.message || "error occured while retrieving products"
+            });
+        }
+        res.render('create_order', {
+            data: true,
+            title: "Create New Order",
             data: results
         });
     });

@@ -12,7 +12,7 @@
 
     {{#if data}}
     {{#each data}}
-    <h2 class=" mb-5">Update supplier : {{name}}</h2>
+    <h2 class=" mb-5">Modification fournisseur : {{name}}</h2>
 
     <form method="post" action="/update_supplier">
         <input type="hidden" id="id" name="id" value="{{id}}">
@@ -59,7 +59,7 @@
             </div>
         </div>
 
-        <button type="submit" class="btn btn-primary d-block w-50 mx-auto">Save</button>
+        <button type="submit" class="btn btn-primary d-block w-50 mx-auto">Enregistrer</button>
     </form>
 </div>
 {{/each}}

@@ -7,12 +7,12 @@
         </a>
     </div>
 
-    <a class="btn btn-primary mx-3" href="/products">All products</a>
+    <a class="btn btn-primary mx-3" href="/products">Tous les produits</a>
     {{/if}}
 
     {{#if data }}
     {{#each data}}
-    <h2 class="mb-5">Update product : {{name}}</h2>
+    <h2 class="mb-5">Modification produit : {{name}}</h2>
 
     <form name="edit_products_form" method="post" action="/update_product">
 
@@ -81,7 +81,7 @@
         {{/each}}
 
         <button type="submit" class="btn btn-primary d-block w-25 mx-auto">
-            save
+            Enregistrer
         </button>
     </form>
 </div>

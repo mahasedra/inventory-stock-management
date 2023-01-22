@@ -7,11 +7,11 @@
             <span aria-hidden="true">&times;</span>
         </a>
     </div>
-    <a class="btn btn-primary mx-3" href="/products">All products</a>
+    <a class="btn btn-primary mx-3" href="/products">Tous les produits</a>
     {{/if}}
 
     {{#if data}}
-    <h2 class="mb-5">New Product</h2>
+    <h2 class="mb-5">Nouveau Produit</h2>
     <form method="post" action="/create_product">
 
         <div class="form-row">
@@ -49,7 +49,12 @@
             <div class="col-12 col-md-4">
                 <div class="form-group">
                     <label for="supplier">Fournisseur</label>
-                    <input type="text" class="form-control" id="supplier" name="supplier" placeholder="Fournisseur">
+                    <select type="text" class="form-control" id="supplier" name="supplier" placeholder="Fournisseur">
+                        <option></option>
+                        {{#each data}}
+                        <option value="{{name}}">{{name}}</option>
+                        {{/each}}
+                    </select>
                 </div>
             </div>
         </div>
