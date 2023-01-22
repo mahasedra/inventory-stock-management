@@ -1,0 +1,64 @@
+<div class="content bg-white">
+    {{#if alert}}
+    <div class="alert alert-danger alert-dismissible fade show m-3 shadow" role="alert">
+        {{message}}
+        <a type="button" href="/orders" class="close" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </a>
+    </div>
+    <a class="btn btn-primary mx-3" href="/orders">All Orders</a>
+    {{/if}}
+
+    {{#if data}}
+    <div class="d-flex justify-content-between mb-4">
+        <h1>Orders</h1>
+
+        <a href="/create_order" class="btn btn-primary">
+            Add Order
+        </a>
+    </div>
+
+    <table id="basic-data-table" class="table nowrap">
+        <thead class="thead thead-light">
+            <tr>
+                <th>NAME</th>
+                <th>CATEGORY</th>
+                <th>PRICE/FRS</th>
+                <th>QUANTITY</th>
+                <th>TOTAL</th>
+                <th>DATE</th>
+                <th>TIME</th>
+                <th>UPDATE</th>
+                <th>DELETE</th>
+
+            </tr>
+        </thead>
+
+        <tbody>
+            {{#each data}}
+            <tr>
+                <td>{{name}}</td>
+                <td>{{category}}</td>
+                <td>{{price}}</td>
+                <td>{{quantity}}</td>
+                <td>{{total}}</td>
+                <td>{{date}}</td>
+                <td>{{time}}</td>
+                <td>
+                    <form class="form" method="post" action="/findOId">
+                        <input type="hidden" name="id" value="{{id}}"><button
+                            class="btn btn-sm d-block w-100 btn-secondary">edit</button>
+                    </form>
+                </td>
+                <td>
+                    <form class="form" method="post" action="/delete_order">
+                        <input type="hidden" name="id" value="{{id}}"><button
+                            class="btn btn-sm d-block w-100 btn-danger">delete</button>
+                    </form>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+    {{/if}}
+</div>

@@ -1,0 +1,35 @@
+<div class="content bg-white">
+        <h2 class="mb-3 font-weight-bold text-center"> Orders Report</h2>
+
+        <table id="orders-report-table" class="display table table-bordered " style="width:100%">
+
+                <thead class="thead thead-light">
+                        <tr>
+                                <th>Nom</th>
+                                <th>Catégorie</th>
+                                <th>Prix</th>
+                                <th>Quantité</th>
+                                <th>Fournisseur</th>
+                                <th>Date</th>
+                                <th>Temps</th>
+
+                        </tr>
+                </thead>
+                <tbody>
+                        {{#each data}}
+                        <tr>
+                                <td>{{name}}</td>
+                                <td>{{category}}</td>
+                                <td>{{price}}</td>
+                                <td>{{quantity}}</td>
+                                <td>{{total}}</td>
+                                <td>{{date}}</td>
+                                <td>{{time}}</td>
+
+                        </tr>
+                        {{/each}}
+                </tbody>
+
+        </table>
+
+</div>

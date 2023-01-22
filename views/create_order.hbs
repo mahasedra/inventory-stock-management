@@ -1,0 +1,99 @@
+<div class="content bg-white">
+
+    {{#if alert}}
+    <div class="alert alert-success alert-dismissible fade show m-3 shadow" role="alert">
+        {{message}}
+        <a type="button" href="/orders" class="close" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </a>
+    </div>
+    <a class="btn btn-primary mx-3" href="/orders">Tous les commandes</a>
+    {{/if}}
+
+    {{#if data}}
+    <h2 class="mb-5">Nouvelle commande</h2>
+
+    <form method="post" action="/create_order">
+        <input type="hidden" id="id" name="id">
+
+        <div class="form-row">
+            <div class="col-12 col-md-6">
+                <div class="form-group">
+                    <label for="name">Nom du produit</label>
+                    <input type="text" class="form-control" id="name" name="name" aria-describedby="name"
+                        placeholder="Nom du produit">
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6">
+                <div class="form-group">
+                    <label for="category">Catégorie</label>
+                    <input type="text" class="form-control" id="category" name="category" placeholder="Catégorie">
+                </div>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="col-12 col-md-4">
+                <div class="form-group">
+                    <label for="price">Prix unitaire</label>
+                    <input type="number" class="form-control" id="price" name="price" placeholder="prix">
+                </div>
+            </div>
+            <div class="col-12 col-md-4">
+                <div class="form-group">
+                    <label for="quantity">Quantité</label>
+                    <input type="number" class="form-control" id="quantity" name="quantity" placeholder="Quantité">
+                </div>
+            </div>
+            <div class="col-12 col-md-4">
+                <div class="form-group">
+                    <label for="total">Total</label>
+                    <input type="number" class="form-control" id="total" name="total" placeholder="Total">
+                </div>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="col-12 col-md-6">
+                <div class="form-group">
+                    <label for="date">Date</label>
+                    <input type="date" class="form-control" id="date" placeholder="date" name="date">
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="form-group">
+                    <label for="time">Temps</label>
+                    <input type="time" class="form-control" id="time" placeholder="time" name="Heure">
+                </div>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary d-block w-25 mx-auto">
+            save
+        </button>
+    </form>
+</div>
+
+<script>
+    let price = document.getElementById("price");
+    let quantity = document.getElementById("quantity");
+    let total = document.getElementById("total");
+
+    quantity.addEventListener("blur", function () {
+        total.value = (price.value * quantity.value);
+    })
+
+    let today = new Date();
+    let date = document.getElementById("date");
+    date.valueAsDate = today;
+
+    let time = document.getElementById("time");
+    time.value = today.toLocaleTimeString('en-GB', {
+        hour: "numeric",
+        minute: "numeric"
+    });
+
+</script>
+
+{{/if}}
