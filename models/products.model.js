@@ -54,8 +54,8 @@ products.findById = function (id, result) {
 products.update = function (product, result) {
     console.log("logging product")
     console.log(product)
-
-    mysqlConn.query("UPDATE products SET name=?,category=?,price=?,quantity=?,supplier=?,date=?,time=? WHERE id=?", [product.name, product.category, product.price, product.quantity, product.supplier, product.date, product.time, product.id], function (err, res) {
+    const myUser = localStorage.getItem('user')
+    mysqlConn.query("UPDATE products SET name=?,category=?,price=?,quantity=?,supplier=?,date=?,time=?, user_id=? WHERE id=?", [product.name, product.category, product.price, product.quantity, product.supplier, product.date, product.time, myUser, product.id], function (err, res) {
         if (err) {
             console.log("error: ", err);
             result(null, err);
@@ -66,7 +66,9 @@ products.update = function (product, result) {
 };
 
 products.delete = function (id, result) {
+    const myUser = localStorage.getItem('user')
     mysqlConn.query("DELETE FROM products WHERE id = ?", [id], function (err, res) {
+        mysqlConn.query("INSERT INTO user_log (user_id, action) VALUES (" + myUser + ", 'a supprimé un produit');")
         if (err) {
             console.log("error: ", err);
             result(null, err);

@@ -1,0 +1,29 @@
+<div class="content bg-white">
+    {{#if data}}
+    <div class="d-flex justify-content-between mb-4">
+        <h1>UserLog</h1>
+
+    </div>
+
+    <table id="basic-data-table" class="table nowrap">
+        <thead class="thead thead-light">
+            <tr>
+                <th>Id</th>
+                <th>User_id</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {{#each data}}
+            <tr>
+                <td>{{id}}</td>
+                <td>{{user_id}}</td>
+                <td>{{action}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+
+    {{/if}}
+</div>

@@ -18,7 +18,7 @@ $("#login_form").on("submit", function (event) {
   let creds = {};
 
   //encrypt data
-  Promise.all([hash(username), hash(password)]).then((values) => {
+  Promise.all([username, hash(password)]).then((values) => {
     creds = {
       "username": values[0],
       "password": values[1]

@@ -8,6 +8,7 @@ const homeController = require("../controllers/home.controller");
 const loginController = require("../controllers/login.controller");
 const reportsController = require("../controllers/reports.controller");
 const suppliersController = require("../controllers/suppliers.controller");
+const userlogController = require("../controllers/user-log.controller");
 
 /******** *********
  * login and registration block
@@ -124,5 +125,10 @@ router.post('/update_supplier', suppliersController.update);
 
 // Delete a supplier with id
 router.post('/delete_supplier', suppliersController.delete);
+
+
+//Retrieve user log
+router.get('/user-log', userlogController.findAll);
+
 
 module.exports = router;
