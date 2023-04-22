@@ -1,5 +1,9 @@
 const products = require("../models/products.model");
 const suppliers = require("../models/suppliers.model");
+const { LocalStorage } = require('node-localstorage');
+const localStorage = new LocalStorage('./data');
+
+
 
 //get all products from db
 exports.findAll = (req, res) => {

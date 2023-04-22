@@ -1,4 +1,7 @@
 var mysqlConn = require('../config/db.config');
+const { LocalStorage } = require('node-localstorage');
+const localStorage = new LocalStorage('./data');
+
 
 
 var products = function (product) {
@@ -9,6 +12,8 @@ var products = function (product) {
     this.supplier = product.supplier;
     this.date = product.date;
     this.time = product.time;
+    this.user_id = localStorage.getItem('user');
+    ;
 };
 
 products.findAll = function (result) {
